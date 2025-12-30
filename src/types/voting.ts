@@ -1,0 +1,35 @@
+export type UserRole = 'admin' | 'student' | 'candidate';
+
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  role: UserRole;
+  studentId?: string;
+  hasVoted?: boolean;
+}
+
+export interface Candidate {
+  id: string;
+  name: string;
+  position: string;
+  photo: string;
+  voteCount: number;
+  description?: string;
+}
+
+export interface ElectionStats {
+  totalVoters: number;
+  totalCandidates: number;
+  votesCast: number;
+  electionStatus: 'open' | 'closed';
+}
+
+export interface Voter {
+  id: string;
+  name: string;
+  studentId: string;
+  email: string;
+  hasVoted: boolean;
+  votedAt?: string;
+}
