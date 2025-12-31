@@ -9,6 +9,16 @@ export interface User {
   hasVoted?: boolean;
 }
 
+export interface CandidateQualification {
+  title: string;
+  description: string;
+}
+
+export interface CandidateGoal {
+  title: string;
+  description: string;
+}
+
 export interface Candidate {
   id: string;
   name: string;
@@ -16,6 +26,13 @@ export interface Candidate {
   photo: string;
   voteCount: number;
   description?: string;
+  // Extended fields for bio/manifesto
+  manifesto?: string;
+  qualifications?: CandidateQualification[];
+  goals?: CandidateGoal[];
+  major?: string;
+  year?: string;
+  email?: string;
 }
 
 export interface ElectionStats {
