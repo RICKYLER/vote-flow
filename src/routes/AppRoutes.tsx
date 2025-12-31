@@ -11,6 +11,7 @@ import AdminResults from '@/pages/admin/AdminResults';
 import AdminSettings from '@/pages/admin/AdminSettings';
 import StudentDashboard from '@/pages/student/StudentDashboard';
 import CandidateDetailPage from '@/pages/student/CandidateDetailPage';
+import CandidateComparePage from '@/pages/student/CandidateComparePage';
 import CandidateDashboard from '@/pages/candidate/CandidateDashboard';
 import NotFound from '@/pages/NotFound';
 
@@ -81,6 +82,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute allowedRoles={['student']}>
             <CandidateDetailPage />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/compare"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <CandidateComparePage />
           </ProtectedRoute>
         }
       />

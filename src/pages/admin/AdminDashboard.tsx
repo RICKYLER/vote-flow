@@ -1,10 +1,13 @@
 import { Users, UserCheck, Vote, Activity } from 'lucide-react';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import StatCard from '@/components/admin/StatCard';
+import ElectionTimeline from '@/components/admin/ElectionTimeline';
 import { mockStats, mockCandidates } from '@/api/mockData';
 
 const AdminDashboard = () => {
   const votingPercentage = Math.round((mockStats.votesCast / mockStats.totalVoters) * 100);
+  const electionStartDate = new Date(mockStats.startDate);
+  const electionEndDate = new Date(mockStats.endDate);
 
   return (
     <div className="min-h-screen flex bg-background">
@@ -45,7 +48,12 @@ const AdminDashboard = () => {
           />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <ElectionTimeline 
+            startDate={electionStartDate} 
+            endDate={electionEndDate} 
+            status={mockStats.electionStatus} 
+          />
           <div className="voting-card">
             <h2 className="text-lg font-semibold mb-4">Candidate Rankings</h2>
             <div className="space-y-4">
