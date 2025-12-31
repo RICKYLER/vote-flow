@@ -40,6 +40,8 @@ export interface ElectionStats {
   totalCandidates: number;
   votesCast: number;
   electionStatus: 'open' | 'closed';
+  startDate: string;
+  endDate: string;
 }
 
 export interface Voter {

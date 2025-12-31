@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { mockCandidates, mockStats } from '@/api/mockData';
 import CandidateCard from '@/components/student/CandidateCard';
+import ElectionCountdown from '@/components/student/ElectionCountdown';
 import { Button } from '@/components/ui/button';
 import { LogOut, CheckCircle2, Vote } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
@@ -32,6 +33,9 @@ const StudentDashboard = () => {
 
   const positions = [...new Set(mockCandidates.map((c) => c.position))];
   const isElectionOpen = mockStats.electionStatus === 'open';
+  
+  // Election end date - in production this would come from the API
+  const electionEndDate = new Date(mockStats.endDate);
 
   const handleVoteClick = (candidateId: string) => {
     const candidate = mockCandidates.find((c) => c.id === candidateId);
@@ -117,15 +121,22 @@ const StudentDashboard = () => {
         ) : (
           <>
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-foreground mb-2">
-                Welcome, {user?.name}
-              </h2>
-              <p className="text-muted-foreground">
-                Cast your vote for each position. You can only vote once per position.
-              </p>
-              <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 bg-success/10 text-success rounded-full text-sm">
-                <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-                Election is Open
+              <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6">
+                <div>
+                  <h2 className="text-2xl font-bold text-foreground mb-2">
+                    Welcome, {user?.name}
+                  </h2>
+                  <p className="text-muted-foreground">
+                    Cast your vote for each position. You can only vote once per position.
+                  </p>
+                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 bg-success/10 text-success rounded-full text-sm">
+                    <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
+                    Election is Open
+                  </div>
+                </div>
+                <div className="lg:min-w-[360px]">
+                  <ElectionCountdown endDate={electionEndDate} />
+                </div>
               </div>
             </div>
 
