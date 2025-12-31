@@ -33,3 +33,14 @@ export interface Voter {
   hasVoted: boolean;
   votedAt?: string;
 }
+
+export interface LoginCredentials {
+  email: string;
+  password: string;
+}
+
+export interface ApiResponse<T> {
+  success: boolean;
+  data?: T;
+  error?: string;
+}

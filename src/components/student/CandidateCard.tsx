@@ -1,4 +1,4 @@
-import { Candidate } from '@/types/voting';
+import { Candidate } from '@/@types';
 import { Button } from '@/components/ui/button';
 import { Check } from 'lucide-react';
 

@@ -1,5 +1,5 @@
 import AdminSidebar from '@/components/admin/AdminSidebar';
-import { mockCandidates, mockStats } from '@/data/mockData';
+import { mockCandidates, mockStats } from '@/api/mockData';
 
 const AdminResults = () => {
   const positions = [...new Set(mockCandidates.map((c) => c.position))];

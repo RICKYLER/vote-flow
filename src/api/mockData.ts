@@ -1,4 +1,4 @@
-import { Candidate, ElectionStats, Voter } from '@/types/voting';
+import { Candidate, ElectionStats, Voter } from '@/@types';
 
 export const mockCandidates: Candidate[] = [
   {

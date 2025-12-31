@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
-import { mockCandidates, mockStats } from '@/data/mockData';
+import { useAuth } from '@/hooks/useAuth';
+import { mockCandidates, mockStats } from '@/api/mockData';
 import { Button } from '@/components/ui/button';
 import { LogOut, TrendingUp, Users, Vote } from 'lucide-react';
 
