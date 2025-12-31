@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
-import { mockStats } from '@/data/mockData';
+import { mockStats } from '@/api/mockData';
 import { useToast } from '@/hooks/use-toast';
 
 const AdminSettings = () => {

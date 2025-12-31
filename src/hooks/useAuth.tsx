@@ -1,9 +1,9 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { User, UserRole } from '@/types/voting';
+import { User, UserRole, LoginCredentials } from '@/@types';
 
 interface AuthContextType {
   user: User | null;
-  login: (role: UserRole, credentials: { email: string; password: string }) => boolean;
+  login: (role: UserRole, credentials: LoginCredentials) => boolean;
   logout: () => void;
   isAuthenticated: boolean;
 }
@@ -38,7 +38,7 @@ const mockUsers: Record<UserRole, User> = {
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
 
-  const login = (role: UserRole, credentials: { email: string; password: string }) => {
+  const login = (role: UserRole, credentials: LoginCredentials) => {
     // Mock authentication - in production, this would validate against a backend
     if (credentials.email && credentials.password) {
       setUser(mockUsers[role]);

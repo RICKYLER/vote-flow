@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Search, CheckCircle2, Clock } from 'lucide-react';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import { Input } from '@/components/ui/input';
-import { mockVoters } from '@/data/mockData';
+import { mockVoters } from '@/api/mockData';
 import {
   Table,
   TableBody,

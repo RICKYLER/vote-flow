@@ -1,7 +1,7 @@
 import { Users, UserCheck, Vote, Activity } from 'lucide-react';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import StatCard from '@/components/admin/StatCard';
-import { mockStats, mockCandidates } from '@/data/mockData';
+import { mockStats, mockCandidates } from '@/api/mockData';
 
 const AdminDashboard = () => {
   const votingPercentage = Math.round((mockStats.votesCast / mockStats.totalVoters) * 100);

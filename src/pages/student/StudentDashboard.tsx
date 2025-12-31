@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
-import { mockCandidates, mockStats } from '@/data/mockData';
+import { useAuth } from '@/hooks/useAuth';
+import { mockCandidates, mockStats } from '@/api/mockData';
 import CandidateCard from '@/components/student/CandidateCard';
 import { Button } from '@/components/ui/button';
 import { LogOut, CheckCircle2, Vote } from 'lucide-react';

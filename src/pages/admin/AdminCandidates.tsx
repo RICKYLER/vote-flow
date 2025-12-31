@@ -3,7 +3,7 @@ import { Plus, Pencil, Trash2, Search } from 'lucide-react';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { mockCandidates } from '@/data/mockData';
+import { mockCandidates } from '@/api/mockData';
 import {
   Table,
   TableBody,
