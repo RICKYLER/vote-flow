@@ -10,6 +10,7 @@ import AdminVoters from '@/pages/admin/AdminVoters';
 import AdminResults from '@/pages/admin/AdminResults';
 import AdminSettings from '@/pages/admin/AdminSettings';
 import StudentDashboard from '@/pages/student/StudentDashboard';
+import CandidateDetailPage from '@/pages/student/CandidateDetailPage';
 import CandidateDashboard from '@/pages/candidate/CandidateDashboard';
 import NotFound from '@/pages/NotFound';
 
@@ -72,6 +73,14 @@ const AppRoutes = () => {
         element={
           <ProtectedRoute allowedRoles={['student']}>
             <StudentDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/candidate/:id"
+        element={
+          <ProtectedRoute allowedRoles={['student']}>
+            <CandidateDetailPage />
           </ProtectedRoute>
         }
       />
