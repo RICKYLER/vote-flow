@@ -5,7 +5,7 @@ import { mockCandidates, mockStats } from '@/api/mockData';
 import CandidateCard from '@/components/student/CandidateCard';
 import ElectionCountdown from '@/components/student/ElectionCountdown';
 import { Button } from '@/components/ui/button';
-import { LogOut, CheckCircle2, Vote } from 'lucide-react';
+import { LogOut, CheckCircle2, Vote, GitCompare } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import {
   AlertDialog,
@@ -129,9 +129,20 @@ const StudentDashboard = () => {
                   <p className="text-muted-foreground">
                     Cast your vote for each position. You can only vote once per position.
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-2 px-3 py-1.5 bg-success/10 text-success rounded-full text-sm">
-                    <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
-                    Election is Open
+                  <div className="mt-4 flex flex-wrap items-center gap-3">
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-success/10 text-success rounded-full text-sm">
+                      <span className="w-2 h-2 bg-success rounded-full animate-pulse" />
+                      Election is Open
+                    </div>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => navigate('/compare')}
+                      className="gap-2"
+                    >
+                      <GitCompare className="w-4 h-4" />
+                      Compare Candidates
+                    </Button>
                   </div>
                 </div>
                 <div className="lg:min-w-[360px]">
