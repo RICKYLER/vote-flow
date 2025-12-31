@@ -180,6 +180,8 @@ export const mockStats: ElectionStats = {
   totalCandidates: 6,
   votesCast: 847,
   electionStatus: 'open',
+  startDate: '2025-12-30T08:00:00',
+  endDate: '2026-01-03T18:00:00',
 };
 
 export const mockVoters: Voter[] = [
