@@ -6,11 +6,22 @@ import { Label } from '@/components/ui/label';
 import { Switch } from '@/components/ui/switch';
 import { mockStats } from '@/api/mockData';
 import { useToast } from '@/hooks/use-toast';
+import ElectionTimeline from '@/components/admin/ElectionTimeline';
 
 const AdminSettings = () => {
   const { toast } = useToast();
   const [electionName, setElectionName] = useState('Student Council Election 2024');
   const [isElectionOpen, setIsElectionOpen] = useState(mockStats.electionStatus === 'open');
+  
+  // Parse initial dates from mockStats
+  const [startDate, setStartDate] = useState(() => {
+    const date = new Date(mockStats.startDate);
+    return date.toISOString().slice(0, 16); // Format for datetime-local input
+  });
+  const [endDate, setEndDate] = useState(() => {
+    const date = new Date(mockStats.endDate);
+    return date.toISOString().slice(0, 16);
+  });
 
   const handleSave = () => {
     toast({
@@ -40,6 +51,13 @@ const AdminSettings = () => {
         </header>
 
         <div className="max-w-2xl space-y-6">
+          {/* Election Timeline Preview */}
+          <ElectionTimeline
+            startDate={new Date(startDate)}
+            endDate={new Date(endDate)}
+            status={isElectionOpen ? 'open' : 'closed'}
+          />
+
           <div className="voting-card">
             <h2 className="text-lg font-semibold mb-6">Election Details</h2>
             
@@ -54,20 +72,22 @@ const AdminSettings = () => {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="startDate">Start Date</Label>
+                <Label htmlFor="startDate">Start Date & Time</Label>
                 <Input
                   id="startDate"
-                  type="date"
-                  defaultValue="2024-01-15"
+                  type="datetime-local"
+                  value={startDate}
+                  onChange={(e) => setStartDate(e.target.value)}
                 />
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="endDate">End Date</Label>
+                <Label htmlFor="endDate">End Date & Time</Label>
                 <Input
                   id="endDate"
-                  type="date"
-                  defaultValue="2024-01-20"
+                  type="datetime-local"
+                  value={endDate}
+                  onChange={(e) => setEndDate(e.target.value)}
                 />
               </div>
             </div>
