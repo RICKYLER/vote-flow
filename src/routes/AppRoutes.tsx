@@ -15,6 +15,11 @@ import CandidateComparePage from '@/pages/student/CandidateComparePage';
 import CandidateDashboard from '@/pages/candidate/CandidateDashboard';
 import NotFound from '@/pages/NotFound';
 
+// Blockchain voting pages
+import BlockchainStudentLogin from '@/pages/student/BlockchainStudentLogin';
+import StudentRegister from '@/pages/student/StudentRegister';
+import BlockchainVotingDashboard from '@/pages/student/BlockchainVotingDashboard';
+
 // Route protection
 import ProtectedRoute from './ProtectedRoute';
 
@@ -25,6 +30,9 @@ const AppRoutes = () => {
       <Route path="/" element={<Index />} />
       <Route path="/login/admin" element={<AdminLogin />} />
       <Route path="/login/student" element={<StudentLogin />} />
+      <Route path="/student/login" element={<BlockchainStudentLogin />} />
+      <Route path="/student/register" element={<StudentRegister />} />
+      <Route path="/student/blockchain-voting" element={<BlockchainVotingDashboard />} />
 
       {/* Admin routes */}
       <Route
